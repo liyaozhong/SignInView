@@ -12,7 +12,7 @@
 #define PRESSING_LINE_WIDTH  8
 #define PRESSING_DURATION  3
 #define PRESSING_TIMER_INTERVAL  0.1
-#define ANIMATION_DURATION  1.5f
+#define ANIMATION_DURATION  1
 
 typedef NS_ENUM(NSInteger, SignInStatus) {
     SignInStatusIdle = 0,
@@ -55,6 +55,7 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
             pressingLayer.strokeColor = [UIColor colorWithRed:126.0f/255 green:218.0f/255 blue:255.0f/255 alpha:1].CGColor;
             pressingLayer.lineWidth = PRESSING_LINE_WIDTH;
         }
+        [pressingLayer removeAllAnimations];
         pressingLayer.strokeStart = 0;
         pressingLayer.strokeEnd = (CGFloat)counter/(PRESSING_DURATION/PRESSING_TIMER_INTERVAL);
     }else{
@@ -74,6 +75,33 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
     [self setNeedsDisplay];
 }
 
+- (void) cancelSignIn
+{
+    if(status == SignInStatusPressing){
+        status = SignInStatusIdle;
+        [_timer invalidate];
+        _timer = nil;
+        [pressingLayer removeAllAnimations];
+        CABasicAnimation * pressingLayerFadeAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+        pressingLayerFadeAnimation.delegate = self;
+        pressingLayerFadeAnimation.fromValue = @((CGFloat)counter/(PRESSING_DURATION/PRESSING_TIMER_INTERVAL));
+        pressingLayerFadeAnimation.toValue = @(0.0);
+        pressingLayer.autoreverses = NO;
+        pressingLayerFadeAnimation.duration = 0.5f;
+        [pressingLayer addAnimation:pressingLayerFadeAnimation forKey:nil];
+        counter = 0;
+    }else{
+        [self setNeedsDisplay];
+    }
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    if(flag){
+        [self setNeedsDisplay];
+    }
+}
+
 - (void) onPressing
 {
     if(counter == PRESSING_DURATION/PRESSING_TIMER_INTERVAL){
@@ -83,7 +111,7 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
         status = SignInStatusDone;
         CGRect bounds = self.bounds;
         self.bounds = CGRectMake(0, 0, bounds.size.width/2, bounds.size.height/2);
-        [UIView animateWithDuration:ANIMATION_DURATION delay:0 usingSpringWithDamping:0.15f initialSpringVelocity:5 options:0 animations:^{
+        [UIView animateWithDuration:ANIMATION_DURATION delay:0 usingSpringWithDamping:0.2f initialSpringVelocity:5 options:0 animations:^{
             self.bounds = bounds;
         } completion:nil];
     }else{
@@ -104,24 +132,12 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
 
 - (void) touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    if(status == SignInStatusPressing){
-        status = SignInStatusIdle;
-        [_timer invalidate];
-        _timer = nil;
-        counter = 0;
-    }
-    [self setNeedsDisplay];
+    [self cancelSignIn];
 }
 
 - (void) touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    if(status == SignInStatusPressing){
-        status = SignInStatusIdle;
-        [_timer invalidate];
-        _timer = nil;
-        counter = 0;
-    }
-    [self setNeedsDisplay];
+    [self cancelSignIn];
 }
 
 @end
