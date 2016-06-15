@@ -26,7 +26,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73z-1M-oYv">
-                                <rect key="frame" x="280.5" y="490" width="39" height="30"/>
+                                <rect key="frame" x="280" y="490" width="39" height="30"/>
                                 <state key="normal" title="Reset"/>
                                 <connections>
                                     <action selector="onReset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lWJ-Tx-0rU"/>

@@ -36,6 +36,7 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetShouldAntialias(context, YES);
     CGContextClearRect(context, rect);
+    CGRect fillRect = CGRectMake(rect.origin.x + (rect.size.width-BTN_WIDTH)/2, rect.origin.y + (rect.size.height-BTN_WIDTH)/2, BTN_WIDTH, BTN_WIDTH);
     UIImage * image;
     if(status == SignInStatusIdle){
         image = [UIImage imageNamed:@"sign_in_btn"];
@@ -44,13 +45,14 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
     }else if(status == SignInStatusDone){
         image = [UIImage imageNamed:@"sign_in_done"];
     }
-    [image drawInRect:rect];
+    [image drawInRect:fillRect];
     
     if(status == SignInStatusPressing){
         if(!pressingLayer){
             pressingLayer = [CAShapeLayer new];
             [self.layer addSublayer:pressingLayer];
-            pressingLayer.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(rect.size.width/2, rect.size.height/2) radius:(BTN_WIDTH-PRESSING_LINE_WIDTH)/2 startAngle:-M_PI_2 endAngle:M_PI * 2 - M_PI_2 clockwise:YES].CGPath;
+            pressingLayer.position = fillRect.origin;
+            pressingLayer.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(fillRect.size.width/2, fillRect.size.height/2) radius:(BTN_WIDTH-PRESSING_LINE_WIDTH)/2 startAngle:-M_PI_2 endAngle:M_PI * 2 - M_PI_2 clockwise:YES].CGPath;
             pressingLayer.fillColor = [UIColor clearColor].CGColor;
             pressingLayer.strokeColor = [UIColor colorWithRed:126.0f/255 green:218.0f/255 blue:255.0f/255 alpha:1].CGColor;
             pressingLayer.lineWidth = PRESSING_LINE_WIDTH;
