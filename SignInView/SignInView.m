@@ -7,6 +7,7 @@
 //
 
 #import "SignInView.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 #define BTN_WIDTH  102
 #define PRESSING_LINE_WIDTH  8
@@ -79,6 +80,7 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
 
 - (void) cancelSignIn
 {
+    AudioServicesRemoveSystemSoundCompletion(kSystemSoundID_Vibrate);
     if(status == SignInStatusPressing){
         status = SignInStatusIdle;
         [_timer invalidate];
@@ -107,6 +109,7 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
 - (void) onPressing
 {
     if(counter == PRESSING_DURATION/PRESSING_TIMER_INTERVAL){
+        AudioServicesRemoveSystemSoundCompletion(kSystemSoundID_Vibrate);
         [_timer invalidate];
         _timer = nil;
         counter = 0;
@@ -122,6 +125,10 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
     [self setNeedsDisplay];
 }
 
+void soundCompleteCallback(SystemSoundID sound,void * clientData) {
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+}
+
 - (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     status = SignInStatusPressing;
@@ -129,6 +136,8 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
         _timer = [NSTimer timerWithTimeInterval:PRESSING_TIMER_INTERVAL target:self selector:@selector(onPressing) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     }
+    AudioServicesAddSystemSoundCompletion(kSystemSoundID_Vibrate, NULL, NULL, soundCompleteCallback, NULL);
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     [self setNeedsDisplay];
 }
 

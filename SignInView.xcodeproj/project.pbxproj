@@ -14,6 +14,7 @@
 		C0BF7C3A1D11263700BA5BF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0BF7C391D11263700BA5BF7 /* Assets.xcassets */; };
 		C0BF7C3D1D11263700BA5BF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BF7C3B1D11263700BA5BF7 /* LaunchScreen.storyboard */; };
 		C0BF7C461D11271400BA5BF7 /* SignInView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BF7C451D11271400BA5BF7 /* SignInView.m */; };
+		C0EABDCE1D126C330001B4D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EABDCD1D126C330001B4D7 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		C0BF7C3E1D11263700BA5BF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0BF7C441D11271400BA5BF7 /* SignInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInView.h; sourceTree = "<group>"; };
 		C0BF7C451D11271400BA5BF7 /* SignInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInView.m; sourceTree = "<group>"; };
+		C0EABDCD1D126C330001B4D7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0EABDCE1D126C330001B4D7 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +48,7 @@
 		C0BF7C211D11263700BA5BF7 = {
 			isa = PBXGroup;
 			children = (
+				C0EABDCD1D126C330001B4D7 /* AudioToolbox.framework */,
 				C0BF7C2C1D11263700BA5BF7 /* SignInView */,
 				C0BF7C2B1D11263700BA5BF7 /* Products */,
 			);
@@ -306,6 +310,7 @@
 				C0BF7C431D11263700BA5BF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
