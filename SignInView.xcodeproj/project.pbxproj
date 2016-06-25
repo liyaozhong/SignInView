@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C04343EA1D1E4863003B529A /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04343E91D1E4863003B529A /* Image.xcassets */; };
 		C04343EE1D1E48CB003B529A /* SignInView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C04343ED1D1E48CB003B529A /* SignInView.podspec */; };
+		C04344011D1E4EDE003B529A /* sign_in_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C04343FB1D1E4EDE003B529A /* sign_in_btn@2x.png */; };
+		C04344021D1E4EDE003B529A /* sign_in_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C04343FC1D1E4EDE003B529A /* sign_in_btn@3x.png */; };
+		C04344031D1E4EDE003B529A /* sign_in_done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C04343FD1D1E4EDE003B529A /* sign_in_done@2x.png */; };
+		C04344041D1E4EDE003B529A /* sign_in_done@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C04343FE1D1E4EDE003B529A /* sign_in_done@3x.png */; };
+		C04344051D1E4EDE003B529A /* sign_in_pressing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C04343FF1D1E4EDE003B529A /* sign_in_pressing@2x.png */; };
+		C04344061D1E4EDE003B529A /* sign_in_pressing@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C04344001D1E4EDE003B529A /* sign_in_pressing@3x.png */; };
 		C0BF7C2F1D11263700BA5BF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BF7C2E1D11263700BA5BF7 /* main.m */; };
 		C0BF7C321D11263700BA5BF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BF7C311D11263700BA5BF7 /* AppDelegate.m */; };
 		C0BF7C351D11263700BA5BF7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BF7C341D11263700BA5BF7 /* ViewController.m */; };
@@ -20,8 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C04343E91D1E4863003B529A /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		C04343ED1D1E48CB003B529A /* SignInView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SignInView.podspec; sourceTree = "<group>"; };
+		C04343FB1D1E4EDE003B529A /* sign_in_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_in_btn@2x.png"; sourceTree = "<group>"; };
+		C04343FC1D1E4EDE003B529A /* sign_in_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_in_btn@3x.png"; sourceTree = "<group>"; };
+		C04343FD1D1E4EDE003B529A /* sign_in_done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_in_done@2x.png"; sourceTree = "<group>"; };
+		C04343FE1D1E4EDE003B529A /* sign_in_done@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_in_done@3x.png"; sourceTree = "<group>"; };
+		C04343FF1D1E4EDE003B529A /* sign_in_pressing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_in_pressing@2x.png"; sourceTree = "<group>"; };
+		C04344001D1E4EDE003B529A /* sign_in_pressing@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_in_pressing@3x.png"; sourceTree = "<group>"; };
 		C0BF7C2A1D11263700BA5BF7 /* SignInView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignInView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0BF7C2E1D11263700BA5BF7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C0BF7C301D11263700BA5BF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,7 +91,12 @@
 				C0BF7C2D1D11263700BA5BF7 /* Supporting Files */,
 				C0BF7C441D11271400BA5BF7 /* SignInView.h */,
 				C0BF7C451D11271400BA5BF7 /* SignInView.m */,
-				C04343E91D1E4863003B529A /* Image.xcassets */,
+				C04343FB1D1E4EDE003B529A /* sign_in_btn@2x.png */,
+				C04343FC1D1E4EDE003B529A /* sign_in_btn@3x.png */,
+				C04343FD1D1E4EDE003B529A /* sign_in_done@2x.png */,
+				C04343FE1D1E4EDE003B529A /* sign_in_done@3x.png */,
+				C04343FF1D1E4EDE003B529A /* sign_in_pressing@2x.png */,
+				C04344001D1E4EDE003B529A /* sign_in_pressing@3x.png */,
 			);
 			path = SignInView;
 			sourceTree = "<group>";
@@ -151,11 +166,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C04344061D1E4EDE003B529A /* sign_in_pressing@3x.png in Resources */,
+				C04344021D1E4EDE003B529A /* sign_in_btn@3x.png in Resources */,
 				C04343EE1D1E48CB003B529A /* SignInView.podspec in Resources */,
 				C0BF7C3D1D11263700BA5BF7 /* LaunchScreen.storyboard in Resources */,
-				C04343EA1D1E4863003B529A /* Image.xcassets in Resources */,
 				C0BF7C3A1D11263700BA5BF7 /* Assets.xcassets in Resources */,
+				C04344011D1E4EDE003B529A /* sign_in_btn@2x.png in Resources */,
+				C04344041D1E4EDE003B529A /* sign_in_done@3x.png in Resources */,
 				C0BF7C381D11263700BA5BF7 /* Main.storyboard in Resources */,
+				C04344031D1E4EDE003B529A /* sign_in_done@2x.png in Resources */,
+				C04344051D1E4EDE003B529A /* sign_in_pressing@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
