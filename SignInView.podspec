@@ -11,4 +11,5 @@ s.platform     = :ios
 s.requires_arc = true
 s.source_files = 'SignInView/SignInView.{h,m}'
 s.ios.deployment_target = '8.0'
+s.ios.frameworks = 'AudioToolbox'
 end
