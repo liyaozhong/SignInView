@@ -5,7 +5,7 @@ s.summary      = '自定义打卡view＋震动＋动画'
 s.homepage     = 'https://github.com/liyaozhong/SignInView'
 s.license      = 'MIT'
 s.author       = { 'liyaozhong' => 'yun.zhongyue@163.com' }
-s.source       = { :https://github.com/liyaozhong/SignInView.git', :tag => s.version.to_s}
+s.source       = { :git => https://github.com/liyaozhong/SignInView.git', :tag => s.version.to_s}
 s.resource     = 'SignInView/Image.xcassets/*'
 s.platform     = :ios
 s.requires_arc = true
