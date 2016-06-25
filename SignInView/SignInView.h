@@ -10,4 +10,5 @@
 
 @interface SignInView : UIView
 - (void) reset;
+- (void) setHasSigned;
 @end

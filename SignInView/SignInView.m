@@ -78,6 +78,15 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
     [self setNeedsDisplay];
 }
 
+- (void) setHasSigned
+{
+    status = SignInStatusDone;
+    [_timer invalidate];
+    _timer = nil;
+    counter = 0;
+    [self setNeedsDisplay];
+}
+
 - (void) cancelSignIn
 {
     AudioServicesRemoveSystemSoundCompletion(kSystemSoundID_Vibrate);
