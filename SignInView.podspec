@@ -6,7 +6,7 @@ s.homepage     = 'https://github.com/liyaozhong/SignInView'
 s.license      = 'MIT'
 s.author       = { 'liyaozhong' => 'yun.zhongyue@163.com' }
 s.source       = { :git => 'https://github.com/liyaozhong/SignInView.git', :tag => s.version.to_s}
-s.resource     = 'SignInView/Image.xcassets/*/*.png'
+s.resource     = 'SignInView/*.png'
 s.platform     = :ios
 s.requires_arc = true
 s.source_files = 'SignInView/SignInView.{h,m}'
