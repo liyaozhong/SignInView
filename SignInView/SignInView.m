@@ -123,6 +123,9 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
         _timer = nil;
         counter = 0;
         status = SignInStatusDone;
+        if(self.delegate){
+            [self.delegate onSignInComplete];
+        }
         CGRect bounds = self.bounds;
         self.bounds = CGRectMake(0, 0, bounds.size.width/2, bounds.size.height/2);
         [UIView animateWithDuration:ANIMATION_DURATION delay:0 usingSpringWithDamping:0.2f initialSpringVelocity:5 options:0 animations:^{
