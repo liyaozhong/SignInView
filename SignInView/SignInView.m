@@ -53,7 +53,7 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
             pressingLayer = [CAShapeLayer new];
             [self.layer addSublayer:pressingLayer];
             pressingLayer.position = fillRect.origin;
-            pressingLayer.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(fillRect.size.width/2, fillRect.size.height/2) radius:(BTN_WIDTH-PRESSING_LINE_WIDTH)/2 startAngle:-M_PI_2 endAngle:M_PI * 2 - M_PI_2 clockwise:YES].CGPath;
+            pressingLayer.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(fillRect.size.width/2, fillRect.size.height/2) radius:(BTN_WIDTH-PRESSING_LINE_WIDTH-2)/2 startAngle:-M_PI_2 endAngle:M_PI * 2 - M_PI_2 clockwise:YES].CGPath;
             pressingLayer.fillColor = [UIColor clearColor].CGColor;
             pressingLayer.strokeColor = [UIColor colorWithRed:126.0f/255 green:218.0f/255 blue:255.0f/255 alpha:1].CGColor;
             pressingLayer.lineWidth = PRESSING_LINE_WIDTH;
@@ -123,14 +123,17 @@ typedef NS_ENUM(NSInteger, SignInStatus) {
         _timer = nil;
         counter = 0;
         status = SignInStatusDone;
-        if(self.delegate){
-            [self.delegate onSignInComplete];
-        }
         CGRect bounds = self.bounds;
         self.bounds = CGRectMake(0, 0, bounds.size.width/2, bounds.size.height/2);
         [UIView animateWithDuration:ANIMATION_DURATION delay:0 usingSpringWithDamping:0.2f initialSpringVelocity:5 options:0 animations:^{
             self.bounds = bounds;
-        } completion:nil];
+        } completion:^(BOOL finished) {
+            if(finished){
+                if(self.delegate){
+                    [self.delegate onSignInComplete];
+                }
+            }
+        }];
     }else{
         counter ++;
     }
